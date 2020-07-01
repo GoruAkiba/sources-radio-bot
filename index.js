@@ -55,14 +55,44 @@ client.on("message", message => {
 		return;
 	}
 
-	// check message with prefix
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	// prevent bot account and message no prefix
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-	const args = message.content.slice(prefix.length).split(/ +/);
-	const command = args.shift().toLowerCase();
+  const args = message.content.slice(prefix.length).split(/ +/);
+  const commandName = args.shift().toLowerCase();
 
-	const comid = client.commands.get(command);
-	comid.execute(client,message,args);
+  if (!client.commands.has(commandName)) return;
+  
+  
+
+  
+  try {
+    const comid = client.commands.get(commandName);
+    if( message.guild === null || comid.AnyChannel){
+      // do somenting when message dome from DM
+      // console.log(client.users.me.id);
+      return null;
+    }else{
+      // do nothing
+    }
+    if(comid.admin && owner.id !== message.author.id ){
+      //control if the command is only for administrator
+      if(!message.member.hasPermission("ADMINISTRATOR")){
+        return message.reply(`Just admin can access \`${comid.name}\` command!!!`).then(msg => msg.delete(5000));
+      }
+    }
+
+    if(comid.owner && owner.id !== message.author.id){
+      return message.reply(`Just owner can access \`${comid.name}\` command!!!`).then(msg => msg.delete(5000));
+    }
+    // execute command
+    comid.execute(client, message, args);
+    
+    
+  } catch (error) {
+    console.error(error);
+    message.reply("there was an error trying to execute that command!").then(msg => msg.delete(5000));
+  }
 
 })
 // console.log(process.env.Token);

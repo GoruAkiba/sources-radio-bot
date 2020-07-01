@@ -62,7 +62,7 @@ module.exports = {
             if (serverQueue.loop === true) {
                 serverQueue.songs.push(shiffed);
             };
-            play(guild, serverQueue.songs[0]);
+            client.players.play(client, guild, serverQueue.songs[0]);
         })
         .on("error", error => console.error(error));
     dispatcher.setVolume(serverQueue.volume / 100);

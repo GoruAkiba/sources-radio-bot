@@ -1,14 +1,18 @@
 {
   "name": "sources-radio-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "free sources for Discord music Bot.",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "GB_Sources",
+  "repository":{
+    "url":"https://github.com/GoruAkiba/sources-radio-bot"
+  },
+  "license": "MIT",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "discord.js": "^12.2.0",
@@ -17,5 +21,9 @@
     "ffmpeg": "0.0.4",
     "simple-youtube-api": "^5.2.1",
     "ytdl-core": "^2.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "opusscript": "0.0.7"
   }
 }
