@@ -13,6 +13,7 @@ module.exports = {
 	owner : false,
 	nsfw : false,
 	async execute(client,message,args){
+		if(!args[0]) return message.reply("please provide url or search query!");
 		var msg = message;
 		const voiceChannel = msg.member.voice.channel;
 		const youtube = client.youtube;
