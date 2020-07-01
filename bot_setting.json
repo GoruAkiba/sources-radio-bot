@@ -1,0 +1,17 @@
+{
+	"colors": {
+		"info":"#20a0f0",
+		"warning":"#FFAC33",
+		"danger":"#f05040",
+		"hack":"#6B9913",
+		"dark" : "#2F3136",
+		"accent" : "#F4DCA9"
+	},
+	"usefulLink":[
+		{
+			"name" : "invite me!",
+			"url" : "https://discordapp.com/oauth2/authorize?client_id={{botId}}&scope=bot&permissions=523328"
+		}
+	],
+	"radioApi" : ""
+}
