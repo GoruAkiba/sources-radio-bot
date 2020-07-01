@@ -14,7 +14,7 @@ module.exports = {
 			title : Util.escapeMarkdown(video.title),
 			url : `https://www.youtube.com/watch?v=${video.id}`
 		}
-		console.log(queue)
+		// console.log(queue)
 		if (!serverQueue) {
         const queueConstruct = {
             textChannel: msg.channel,
@@ -28,8 +28,8 @@ module.exports = {
         await queue.set(msg.guild.id, queueConstruct);
 
         queueConstruct.songs.push(song);
-				console.log(msg.guild.id);
-				console.log(queueConstruct);
+				// console.log(msg.guild.id);
+				// console.log(queueConstruct);
 				
 				try {
             var connection = await voiceChannel.join();

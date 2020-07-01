@@ -26,7 +26,7 @@ module.exports = {
         var cm = [];
         cm.push(`Description : \`\`${cmd.description}\`\``)
         if(cmd.aliases) cm.push(`Aliases : \`\`${cmd.aliases}\`\``);
-        if(cmd.usage) cm.push(`usage : \`\`${prefix+cmd.name+" "+cmd.usage}\`\``);
+        if(cmd.ussage) cm.push(`usage : \`\`${prefix+cmd.name+" "+cmd.ussage}\`\``);
 
         var embed = new Discord.MessageEmbed()
           .setTitle(`**${cmd.name}** help command`)
