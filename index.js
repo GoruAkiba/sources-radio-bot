@@ -98,3 +98,6 @@ client.on("message", message => {
 // console.log(process.env.Token);
 
 client.login(process.env.Token)
+
+// webconfig
+require("./webserver.js");
