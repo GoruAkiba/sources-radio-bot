@@ -4,13 +4,14 @@
   "description": "free sources for Discord music Bot.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node bin/dev.js",
+    "dev" : "nodemon bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "GB_Sources",
-  "repository":{
-    "url":"https://github.com/GoruAkiba/sources-radio-bot"
+  "repository": {
+    "url": "https://github.com/GoruAkiba/sources-radio-bot"
   },
   "license": "MIT",
   "dependencies": {
@@ -21,6 +22,7 @@
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.5",
     "simple-youtube-api": "^5.2.1",
+    "superagent": "^5.3.1",
     "ytdl-core": "^2.1.7"
   },
   "devDependencies": {

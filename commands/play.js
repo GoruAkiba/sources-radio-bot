@@ -18,6 +18,7 @@ module.exports = {
 		const voiceChannel = msg.member.voice.channel;
 		const youtube = client.youtube;
 		const colors = client.colors;
+		const type = "YT";
 
 		const url = args[0] ? args[0].replace(/<(.+)>/g, "$1") : "";
 		const searchString = args.join(" ");
@@ -30,28 +31,32 @@ module.exports = {
 		if (!permissions.has("SPEAK")) {
 				return msg.channel.send("Sorry, but I need **`SPEAK`** permissions to proceed!");
 		}
+
+		// handling f args is YT Uri with playlist
 		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
-				const playlist = await youtube.getPlaylist(url);
-				const videos = await playlist.getVideos();
-				for (const video of Object.values(videos)) {
-						const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
-						await client.players.handleVideo(client,video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
-				}
-				return msg.channel.send(`<:yes:591629527571234819>  **|**  Playlist: **\`${playlist.title}\`** has been added to the queue!`);
+			const playlist = await youtube.getPlaylist(url);
+			const videos = await playlist.getVideos();
+			for (const video of Object.values(videos)) {
+					const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
+					await client.players.handleVideo(client,video2, msg, voiceChannel, true, type); // eslint-disable-line no-await-in-loop
+			}
+			return msg.channel.send(`<:yes:591629527571234819>  **|**  Playlist: **\`${playlist.title}\`** has been added to the queue!`);
 		} else {
+			// else try execute the youtube from given url
+			try {
+				var video = await youtube.getVideo(url);
+			} catch (error) {
 				try {
-						var video = await youtube.getVideo(url);
-				} catch (error) {
-						try {
-								var videos = await youtube.searchVideos(searchString, 10);
-								var video = await youtube.getVideoByID(videos[0].id);
-								if (!video) return msg.channel.send("🆘  **|**  I could not obtain any search results.");
-						} catch (err) {
-								console.error(err);
-								return msg.channel.send("🆘  **|**  I could not obtain any search results.");
-						}
+					// try to search Youtube form given query
+					var videos = await youtube.searchVideos(searchString, 10);
+					var video = await youtube.getVideoByID(videos[0].id);
+					if (!video) return msg.channel.send("🆘  **|**  I could not obtain any search results.");
+				} catch (err) {
+					console.error(err);
+					return msg.channel.send("🆘  **|**  I could not obtain any search results.");
 				}
-				return client.players.handleVideo(client,video, msg, voiceChannel);
+			}
+			return client.players.handleVideo(client,video, msg, voiceChannel, false, type);
 		}
 	}
 }

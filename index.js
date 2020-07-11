@@ -34,7 +34,8 @@ for (const file of commandFiles ) {
 client.on("warn", console.warn);
 client.on("error", console.error);
 client.on("ready", (e) => {
-	console.log(`${client.user.tag} Ready!!!`)
+	console.log(`${client.user.tag} Ready!!!`);
+	// client.players.radioList();
 })
 
 client.on("message", message => {

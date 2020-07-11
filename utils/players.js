@@ -2,18 +2,28 @@
 const Discord = require("discord.js");
 const {Util} = require("discord.js");
 const ytdl = require("ytdl-core");
+const superagent = require("superagent");
+const {radioServer} = require("../bot_setting.json")
 
 
 module.exports = {
 	"name":"players",
-	"handleVideo" : async (client, video, msg, voiceChannel) => {
+	"handleVideo" : async (client, video, msg, voiceChannel, playlist=false, type) => {
 		var queue = client.queue;
 		const serverQueue = queue.get(msg.guild.id);
-		const song = {
+		const song = type !== "Radio"? {
 			id : video.id,
 			title : Util.escapeMarkdown(video.title),
-			url : `https://www.youtube.com/watch?v=${video.id}`
+			url : `https://<www class="youtu"></www>be.com/watch?v=${video.id}`,
+            type : "YT"
 		}
+        : {
+            id : video.id,
+            title : Util.escapeMarkdown(video.title),
+            url : video.url,
+            type : "Radio"
+        };
+
 		// console.log(queue)
 		if (!serverQueue) {
         const queueConstruct = {
@@ -28,10 +38,10 @@ module.exports = {
         await queue.set(msg.guild.id, queueConstruct);
 
         queueConstruct.songs.push(song);
-				// console.log(msg.guild.id);
-				// console.log(queueConstruct);
-				
-				try {
+		// console.log(msg.guild.id);
+		// console.log(queueConstruct);
+		
+		try {
             var connection = await voiceChannel.join();
             queueConstruct.connection = connection;
             client.players.play(client,msg.guild, queueConstruct.songs[0]);
@@ -42,36 +52,38 @@ module.exports = {
         }
 		} else {
 			serverQueue.songs.push(song);
-        if (playlist) return;
-        else return msg.channel.send(`<:yes:591629527571234819>  **|** **\`${song.title}\`** has been added to the queue!`);
+            if (playlist) return;
+            else return msg.channel.send(`<:yes:591629527571234819>  **|** **\`${song.title}\`** has been added to the queue!`);
 		}
 	},
 	"play" : async (client, guild, song) => {
-		const queue = client.queue
-    const serverQueue = queue.get(guild.id);
+	   const queue = client.queue
+        const serverQueue = queue.get(guild.id);
 
-    if (!song) {
-			// this dude make me leave if queue was empty
-        serverQueue.voiceChannel.leave();
-        return queue.delete(guild.id);
-    }
-
-    const dispatcher = serverQueue.connection.play(ytdl(song.url))
-        .on("finish", () => {
-            const shiffed = serverQueue.songs.shift();
-            if (serverQueue.loop === true) {
-                serverQueue.songs.push(shiffed);
-            };
-            client.players.play(client, guild, serverQueue.songs[0]);
-        })
-        .on("error", error => console.error(error));
-    dispatcher.setVolume(serverQueue.volume / 100);
-
-    serverQueue.textChannel.send({
-        embed: {
-            color: "RANDOM",
-            description: `🎶  **|**  Start Playing: **\`${song.title}\`**`
+        if (!song) {
+    			// this dude make me leave if queue was empty
+            serverQueue.voiceChannel.leave();
+            return queue.delete(guild.id);
         }
-    });
-}
+
+        var stream = song.type !== "Radio"? ytdl(song.url) : song.url;
+
+        const dispatcher = serverQueue.connection.play(stream)
+            .on("finish", () => {
+                const shiffed = serverQueue.songs.shift();
+                if (serverQueue.loop === true) {
+                    serverQueue.songs.push(shiffed);
+                };
+                client.players.play(client, guild, serverQueue.songs[0]);
+            })
+            .on("error", error => console.error(error));
+        dispatcher.setVolume(serverQueue.volume / 100);
+
+        serverQueue.textChannel.send({
+            embed: {
+                color: "RANDOM",
+                description: `🎶  **|**  Start Playing: **\`${song.title}\`**`
+            }
+        });
+    }
 }

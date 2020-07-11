@@ -2,6 +2,8 @@
 const { Client } = require("discord.js");
 const YouTube = require("simple-youtube-api");
 const GOOGLE_API_KEY = process.env.YT_API;
+const {colors, radioServer} = require("../bot_setting.json");
+const superagent = require("superagent");
 
 // Extend class
 class botClient extends Client {
@@ -14,7 +16,18 @@ class botClient extends Client {
 		this.players = require("../utils/players");
 		this.youtube = new YouTube(GOOGLE_API_KEY);
 
-		this.colors = require("../bot_setting.json").colors;
+		this.colors = colors;
+
+		this.radioList = [];
+    	this.radioUpdate = async () => {
+	        var dat = await superagent.get(radioServer);
+	        if(!dat.text) return [];
+	        var parsed = JSON.parse(dat.text);
+
+	        this.radioList = parsed;
+	    }
+
+		this.radioUpdate();
 	}
 }
 
