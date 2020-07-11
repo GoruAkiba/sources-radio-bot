@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node bin/dev.js",
     "dev": "nodemon bin/dev.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node bin/dev.js"
   },
   "keywords": [],
   "author": "GB_Sources",
