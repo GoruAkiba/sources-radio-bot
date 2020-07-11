@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node bin/dev.js",
-    "dev" : "nodemon bin/dev.js",
+    "dev": "nodemon bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -26,6 +26,7 @@
     "ytdl-core": "^2.1.7"
   },
   "devDependencies": {
+    "ci": "^1.0.0",
     "nodemon": "^2.0.4",
     "opusscript": "0.0.7"
   }
