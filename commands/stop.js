@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
 	name : "stop",
 	description: "stop nowplaying audio",
@@ -8,7 +9,7 @@ module.exports = {
 	admin : false,
 	owner : false,
 	nsfw : false,
-	async execute(client,message,args){
+	async execute(client,message){
 		var msg = message;
 		var serverQueue = client.queue.get(msg.guild.id);
 		
@@ -16,7 +17,7 @@ module.exports = {
 		var guildvoice = client.voice.connections.get(message.guild.id);
 		if(!guildvoice) return message.reply("please letme join to room!")
 		if(guildvoice.channel.id !== msg.member.voice.channel.id) return message.reply("dont disturb me!")
-		if (!serverQueue) return msg.channel.send("There is nothing playing that I could **\`stop\`** for you.");
+		if (!serverQueue) return msg.channel.send("There is nothing playing that I could **`stop`** for you.");
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end("Stop command has been used!");
 		return msg.channel.send("⏹️  **|**  Stop command has been used!");

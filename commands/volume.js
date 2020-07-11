@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
 	name : "volume",
 	description: "change player volume",

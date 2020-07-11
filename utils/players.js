@@ -1,9 +1,8 @@
+/* eslint-disable no-undef */
 // init
-const Discord = require("discord.js");
 const {Util} = require("discord.js");
 const ytdl = require("ytdl-core");
-const superagent = require("superagent");
-const {radioServer} = require("../bot_setting.json")
+
 
 
 module.exports = {
@@ -57,11 +56,11 @@ module.exports = {
 		}
 	},
 	"play" : async (client, guild, song) => {
-	   const queue = client.queue
+        const queue = client.queue
         const serverQueue = queue.get(guild.id);
 
         if (!song) {
-    			// this dude make me leave if queue was empty
+            // this dude make me leave if queue was empty
             serverQueue.voiceChannel.leave();
             return queue.delete(guild.id);
         }
@@ -73,7 +72,7 @@ module.exports = {
                 const shiffed = serverQueue.songs.shift();
                 if (serverQueue.loop === true) {
                     serverQueue.songs.push(shiffed);
-                };
+                }
                 client.players.play(client, guild, serverQueue.songs[0]);
             })
             .on("error", error => console.error(error));

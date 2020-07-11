@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-redeclare */
 module.exports = {
 	name : "search",
 	description: "Youtube search given query",

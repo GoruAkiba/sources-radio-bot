@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // init
 const { Client } = require("discord.js");
 const YouTube = require("simple-youtube-api");
@@ -19,13 +20,13 @@ class botClient extends Client {
 		this.colors = colors;
 
 		this.radioList = [];
-    	this.radioUpdate = async () => {
-	        var dat = await superagent.get(radioServer);
-	        if(!dat.text) return [];
-	        var parsed = JSON.parse(dat.text);
+		this.radioUpdate = async () => {
+			var dat = await superagent.get(radioServer);
+			if(!dat.text) return [];
+			var parsed = JSON.parse(dat.text);
 
-	        this.radioList = parsed;
-	    }
+			this.radioList = parsed;
+		}
 
 		this.radioUpdate();
 	}

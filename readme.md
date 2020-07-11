@@ -19,7 +19,7 @@ an open source Discord music and radio bot. written from scratch with ♥ using 
 
 ## Instaling Bot
 
-its easy. Copy/Rename the `.env_example` to `.env` and fulfill the requrement
+its easy. Copy/Rename the `.env_example` to `.env` and fulfill the requirement
 ```
 Token=Your_Bot_Token
 Prefix=your_BOT_Prefix

@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 // init const
 const Discord = require("discord.js");
-const express = require("express");
-const app = express();
 const fs = require("fs");
+// eslint-disable-next-line no-undef
 const prefix = process.env.Prefix;
+// eslint-disable-next-line no-undef
 const owner_id = process.env.Owner;
 
 const BotClient = require("./structures/BotClient.js");
@@ -33,7 +34,7 @@ for (const file of commandFiles ) {
 // BOT event Handler
 client.on("warn", console.warn);
 client.on("error", console.error);
-client.on("ready", (e) => {
+client.on("ready", () => {
 	console.log(`${client.user.tag} Ready!!!`);
 	// client.players.radioList();
 })
@@ -76,14 +77,14 @@ client.on("message", message => {
     }else{
       // do nothing
     }
-    if(comid.admin && owner.id !== message.author.id ){
+    if(comid.admin && owner_id !== message.author.id ){
       //control if the command is only for administrator
       if(!message.member.hasPermission("ADMINISTRATOR")){
         return message.reply(`Just admin can access \`${comid.name}\` command!!!`).then(msg => msg.delete(5000));
       }
     }
 
-    if(comid.owner && owner.id !== message.author.id){
+    if(comid.owner && owner_id !== message.author.id){
       return message.reply(`Just owner can access \`${comid.name}\` command!!!`).then(msg => msg.delete(5000));
     }
     // execute command
@@ -98,6 +99,7 @@ client.on("message", message => {
 })
 // console.log(process.env.Token);
 
+// eslint-disable-next-line no-undef
 client.login(process.env.Token)
 
 // webconfig

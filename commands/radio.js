@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 // init
 const Discord = require("discord.js");
 const {radioServer, colors} = require("../bot_setting.json");

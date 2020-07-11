@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
 	name : "pause",
 	description: "pause current Audio!",
@@ -8,7 +9,7 @@ module.exports = {
 	admin : false,
 	owner : false,
 	nsfw : false,
-	async execute(client,message,args){
+	async execute(client,message){
 		var msg = message;
 		var serverQueue = client.queue.get(msg.guild.id);
 

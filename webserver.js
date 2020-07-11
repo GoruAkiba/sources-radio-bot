@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const express = require("express");
 const app = express();
 
@@ -12,6 +13,6 @@ app.get("/",(req,resp) => {
 	});
 })
 
-app.listen(_PORT, (e)=>{
+app.listen(_PORT, ()=>{
 	console.log(`Listening to port : ${_PORT}`);
 })

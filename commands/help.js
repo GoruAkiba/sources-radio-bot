@@ -1,3 +1,5 @@
+/* eslint-disable no-redeclare */
+/* eslint-disable no-undef */
 const Discord = require('discord.js');
 const fs = require("fs");
 const prefix = process.env.Prefix;

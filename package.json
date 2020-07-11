@@ -6,9 +6,15 @@
   "scripts": {
     "start": "node bin/dev.js",
     "dev": "nodemon bin/dev.js",
-    "test": "node bin/dev.js"
+    "lint": "eslint \"./**/*.js\""
   },
-  "keywords": ["Discord-Bot","Music-Bot","Radio-Bot","Node.js","MIT"],
+  "keywords": [
+    "Discord-Bot",
+    "Music-Bot",
+    "Radio-Bot",
+    "Node.js",
+    "MIT"
+  ],
   "author": "GB_Sources",
   "repository": {
     "url": "https://github.com/GoruAkiba/sources-radio-bot"
@@ -20,12 +26,13 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "ffmpeg": "0.0.4",
-    "ffmpeg-static":"^4.2.5",
+    "ffmpeg-static": "^4.2.5",
     "simple-youtube-api": "^5.2.1",
     "superagent": "^5.3.1",
     "ytdl-core": "^2.1.7"
   },
   "devDependencies": {
+    "eslint": "^7.4.0",
     "nodemon": "^2.0.4",
     "opusscript": "0.0.7"
   }
