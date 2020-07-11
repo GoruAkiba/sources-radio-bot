@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - 12.x
+before_install:
+  - npm i -g @discordjs/opus
+  - npm i -g discord.js
+  - npm i -g dotenv
+  - npm i -g express
+  - npm i -g ffmpeg
+  - npm i -g ffmpeg-static
+  - npm i -g simple-youtube-api
+  - npm i -g superagent
+  - npm i -g ytdl-core
+  - npm i -g opusscript
+  
