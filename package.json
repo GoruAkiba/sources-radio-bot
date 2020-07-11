@@ -1,14 +1,14 @@
 {
   "name": "sources-radio-bot",
   "version": "1.0.0",
-  "description": "free sources for Discord music Bot.",
+  "description": "open source for Discord music and radio Bot.",
   "main": "index.js",
   "scripts": {
     "start": "node bin/dev.js",
     "dev": "nodemon bin/dev.js",
     "test": "node bin/dev.js"
   },
-  "keywords": [],
+  "keywords": ["Discord-Bot","Music-Bot","Radio-Bot","Node.js","MIT"],
   "author": "GB_Sources",
   "repository": {
     "url": "https://github.com/GoruAkiba/sources-radio-bot"
