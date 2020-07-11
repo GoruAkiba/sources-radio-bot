@@ -1,7 +1,7 @@
 // init
 const Discord = require("discord.js");
 const {radioServer, colors} = require("../bot_setting.json");
-const prefix = process.env.prefix;
+const prefix = process.env.Prefix;
 
 
 module.exports = {
