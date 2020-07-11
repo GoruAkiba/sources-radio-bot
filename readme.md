@@ -14,7 +14,7 @@ an open source Discord music and radio bot. written from scratch with ♥ using 
 [![Run on Repl.it](https://repl.it/badge/github/GoruAkiba/sources-radio-bot)](https://repl.it/github/GoruAkiba/sources-radio-bot)
 
 > **Disclaimer** | 
-> this bot written with [Zhycorp](https://github.com/zhycorp) and [iCrawl](https://github.com/iCrawl) music handling system, but rewrite in separate dynamic command handling system by [GB_Sources](https://github.com/GoruAkiba).
+> this bot written with [Zhycorp](https://github.com/zhycorp) and [iCrawl](https://github.com/iCrawl) music handling system,<br> but scaled and rewrited in separate dynamic command handling system by [GB_Sources](https://github.com/GoruAkiba).
 
 
 ## Instaling Bot
@@ -42,14 +42,11 @@ Joint our Discord Community
 or buy me coffe, [☕ here](https://trakteer.id/gb-sources-santoso)
 
 ## Author
-**Music-Bot** © [iCrawl](https://github.com/iCrawl), Released under the [MIT](https://github.com/zealcordNation/music-bot-example/blob/master/LICENSE.md) License.
-
+**Music-Bot** © [iCrawl](https://github.com/iCrawl), Released under the [MIT](https://github.com/zealcordNation/music-bot-example/blob/master/LICENSE.md) License.<br>
 Authored and maintained by iCrawl. Modified by [Zhycorp](https://github.com/zhycorp)
 
-Scaled to
-
-**SOURCES-RADIO-BOT** © [GB_Sources](https://github.com/GoruAkiba)
-
+Scaled to<br>
+**SOURCES-RADIO-BOT** © [GB_Sources](https://github.com/GoruAkiba)<br>
 Authored and Maintained by GB_Sources
 
 > GitHub [@GB_Sources](https://github.com/GoruAkiba)
