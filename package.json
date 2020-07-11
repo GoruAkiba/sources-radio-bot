@@ -26,7 +26,6 @@
     "ytdl-core": "^2.1.7"
   },
   "devDependencies": {
-    "ci": "^1.0.0",
     "nodemon": "^2.0.4",
     "opusscript": "0.0.7"
   }
