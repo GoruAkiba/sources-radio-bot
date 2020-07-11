@@ -12,4 +12,5 @@ before_install:
   - npm i -g superagent
   - npm i -g ytdl-core
   - npm i -g opusscript
+  - npm i ci
 
