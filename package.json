@@ -19,6 +19,9 @@
   "repository": {
     "url": "https://github.com/GoruAkiba/sources-radio-bot"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "license": "MIT",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
