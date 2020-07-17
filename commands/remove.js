@@ -11,7 +11,7 @@ module.exports = {
 	nsfw : false,
 	async execute(client,message,args){
         if(!args[0]) return message.reply("please provide the index to remove!")
-        var num = parseInt(args[0])-1;
+        var num = parseInt(args[0]);
 		var msg = message;
 		var serverQueue = client.queue.get(msg.guild.id);
 		if (!msg.member.voice.channel ) return msg.channel.send("I'm sorry but you need to be in a voice channel to play a music!");
