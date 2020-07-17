@@ -19,7 +19,7 @@ module.exports = {
 		if(!guildvoice) return message.reply("please letme join to room!")
 		if (serverQueue) {
             if(!serverQueue.songs) return message.reply("No songs on queue!")
-            if(num < 0 || num > serverQueue.songs.length) return msg.reply("Out of range!");
+            if(num <= 0 || num > serverQueue.songs.length) return msg.reply("Out of range!");
             var rmm = serverQueue.songs[num];
             serverQueue.songs.splice(num,1);
             return msg.channel.send(`❌ **|** Success remove \`${rmm.title}\`!`);
