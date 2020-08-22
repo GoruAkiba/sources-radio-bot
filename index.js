@@ -37,6 +37,8 @@ client.on("error", console.error);
 client.on("ready", () => {
 	console.log(`${client.user.tag} Ready!!!`);
 	// client.players.radioList();
+	// webconfig
+	require("./webserver.js").exec(client);
 })
 
 client.on("message", message => {
@@ -102,5 +104,3 @@ client.on("message", message => {
 // eslint-disable-next-line no-undef
 client.login(process.env.Token)
 
-// webconfig
-require("./webserver.js");
