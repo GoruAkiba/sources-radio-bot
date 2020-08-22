@@ -10,7 +10,7 @@ an open source Discord music and radio bot. written from scratch with ♥ using 
 ![GitHub contributors](https://img.shields.io/github/contributors/GoruAkiba/sources-radio-bot)
 ![GitHub last commit](https://img.shields.io/github/last-commit/GoruAkiba/sources-radio-bot)
 ![GitHub repo size](https://img.shields.io/github/repo-size/GoruAkiba/sources-radio-bot)
-[![Build Status](https://travis-ci.com/GoruAkiba/   sources-radio-bot.svg?branch=master)](https://travis-ci.com/GoruAkiba/sources-radio-bot)
+[![Build Status](https://travis-ci.com/GoruAkiba/sources-radio-bot.svg?branch=master)](https://travis-ci.com/GoruAkiba/sources-radio-bot)
 [![Discord](https://img.shields.io/discord/332877090003091456)](https://discord.gg/DxenCeV )
 [![Run on Repl.it](https://repl.it/badge/github/GoruAkiba/sources-radio-bot)](https://repl.it/github/GoruAkiba/sources-radio-bot)
 
