@@ -82,20 +82,25 @@ client.on("message", message => {
     if(comid.admin && owner_id !== message.author.id ){
       //control if the command is only for administrator
       if(!message.member.hasPermission("ADMINISTRATOR")){
-        return message.reply(`Just admin can access \`${comid.name}\` command!!!`).then(msg => msg.delete(5000));
+        return message.reply(`Just admin can access \`${comid.name}\` command!!!`).then(msg => msg.delete({timeout:5000}));
       }
     }
 
     if(comid.owner && owner_id !== message.author.id){
-      return message.reply(`Just owner can access \`${comid.name}\` command!!!`).then(msg => msg.delete(5000));
+      return message.reply(`Just owner can access \`${comid.name}\` command!!!`).then(msg => msg.delete({timeout:5000}));
     }
+
+		
+    // only on nsfw channel
+		if (comid.nsfw && !message.channel.nsfw) return message.reply("require NSFW channel! so can't run command!").then(msg => msg.delete({timeout:5000}));
+
     // execute command
     comid.execute(client, message, args);
     
     
   } catch (error) {
     console.error(error);
-    message.reply("there was an error trying to execute that command!").then(msg => msg.delete(5000));
+    message.reply("there was an error trying to execute that command!").then(msg => msg.delete({timeout:5000}));
   }
 
 })
