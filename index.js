@@ -39,6 +39,13 @@ client.on("ready", () => {
 	// client.players.radioList();
 	// webconfig
 	require("./webserver.js").exec(client);
+});
+client.on("voiceStateUpdate", (mold, mnew) => {
+	if( !mold.channelID) return;
+	if( !mnew.channelID && client.user.id == mold.id ) {
+		 const serverQueue = client.queue.get(mold.guild.id);
+		 if(serverQueue)  client.queue.delete(mold.guild.id);
+	} ;
 })
 
 client.on("message", message => {
